@@ -65,7 +65,7 @@ void lidar_com_clique(int x, int y) {
             }
             else
               {
-              printf("N„o È possÌvel mover\n");
+              printf("N√£o √© poss√≠vel mover\n");
               }
             selecionada = 0;
         }
@@ -156,7 +156,7 @@ int pode_mover(int linha_origem, int coluna_origem, int linha_destino, int colun
 
     int peca_selecionada = tabuleiro[linha_origem][coluna_origem];
 
-    printf("Debug: PeÁa selecionada: Jogador %d\n", peca_selecionada);
+    printf("Debug: Pe√ßa selecionada: Jogador %d\n", peca_selecionada);
 
 
     int direcao = (jogador_atual == 1) ? 1 : -1;
@@ -179,22 +179,22 @@ int pode_mover(int linha_origem, int coluna_origem, int linha_destino, int colun
 
    if ((peca_selecionada == 3 || peca_selecionada == 4) && abs(linha_destino - linha_origem) == 2 &&
     (abs(coluna_destino - coluna_origem) == 2)) {
-    printf("Debug: Movimento permitido para tr·s (duas casas, somente para damas)\n");
+    printf("Debug: Movimento permitido para tr√°s (duas casas, somente para damas)\n");
     return 1;
     }
 
 
 
    if ((peca_selecionada == 3 || peca_selecionada == 4) && (abs(linha_destino - linha_origem) == 1) && (abs(coluna_destino - coluna_origem) == 1)) {
-    printf("Debug: Movimento permitido para frente ou para tr·s (uma casa, somente para damas)\n");
+    printf("Debug: Movimento permitido para frente ou para tr√°s (uma casa, somente para damas)\n");
      return 1;
      } else {
-     printf("Debug: CondiÁ„o especÌfica para damas n„o atendida\n");
+     printf("Debug: Condi√ß√£o espec√≠fica para damas n√£o atendida\n");
   }
 
 
 
-    printf("Debug: Movimento N√O permitido\n");
+    printf("Debug: Movimento N√ÉO permitido\n");
 
     return 0;
 }
@@ -216,7 +216,7 @@ void verificar_promocao(int linha, int coluna) {
         if ((jogador_atual == 1 && linha == 7) || (jogador_atual == 2 && linha == 0)) {
 
             tabuleiro[linha][coluna] = jogador_atual + 2;
-            printf("Debug: PeÁa promovida para dama - Nova peÁa: %d\n", tabuleiro[linha][coluna]);
+            printf("Debug: Pe√ßa promovida para dama - Nova pe√ßa: %d\n", tabuleiro[linha][coluna]);
         }
     }
 }
@@ -263,10 +263,10 @@ int verificar_vitoria() {
     }
 
     if (pecas_jogador1 == 0) {
-        printf("Jogador 2 È o vencedor!\n");
+        printf("Jogador 2 √© o vencedor!\n");
         return 1;
     } else if (pecas_jogador2 == 0) {
-        printf("Jogador 1 È o vencedor!\n");
+        printf("Jogador 1 √© o vencedor!\n");
         return 1;
     }
 
@@ -315,10 +315,10 @@ void desenhar_tabuleiro() {
             SDL_RenderFillRect(renderizador, &rect);
 
             if (tabuleiro[i][j] == 1) {
-                SDL_SetRenderDrawColor(renderizador, 255, 0, 0, 255); // PeÁa vermelha
+                SDL_SetRenderDrawColor(renderizador, 255, 0, 0, 255); // Pe√ßa vermelha
                 desenhar_circulo(j * TAMANHO_CELULA + TAMANHO_CELULA / 2, i * TAMANHO_CELULA + TAMANHO_CELULA / 2, TAMANHO_CELULA / 2 - 5);
             } else if (tabuleiro[i][j] == 2) {
-                SDL_SetRenderDrawColor(renderizador, 0, 0, 255, 255); // PeÁa azul
+                SDL_SetRenderDrawColor(renderizador, 0, 0, 255, 255); // Pe√ßa azul
                 desenhar_circulo(j * TAMANHO_CELULA + TAMANHO_CELULA / 2, i * TAMANHO_CELULA + TAMANHO_CELULA / 2, TAMANHO_CELULA / 2 - 5);
 	       } else if (tabuleiro[i][j] == 3) {
 	            SDL_Color corDama = {255, 0, 0, 255};
